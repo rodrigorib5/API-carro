@@ -6,11 +6,12 @@ require_once 'bootstrap.php';
 
 $app->get('/', function () use ($app) {
     
-    $rodrigo = $app['db']->fetchAll('SELECT * FROM modelo_carro');
-    
-    return 'Hello ';
+    return $app['twig']->render('usage.twig');
+
 });
 
-$app->mount('/carro', include 'carro.php');
+$app->mount('/admin', include 'admin.php');
+$app->mount('/API/carro', include '/../API/carro.php');
+$app->mount('/API/carroDao', include '/../API/carroDao.php');
 
 $app->run();

@@ -1,0 +1,23 @@
+{% extends "template.twig" %}
+
+{% block conteudo %}
+
+<h3>Listar Carros</h3>
+<p>/API/carro</p>
+
+<h3>Listar Carros por modelo</h3>
+	<p>/API/carro/modelo/{nome do modelo}</p>
+	
+	<h3>Listar Carros por nº Aro da Roda</h3>
+	<p>/API/carro/aro/{nº do aro}</p>
+	
+	<h3>Listar Carros por ano</h3>
+	<p>/API/carro/ano/{ano}</p>
+	
+	<h3>Listar Carros por Acessorio</h3>
+	<p>/API/carro/acessorio/{nome acessorio}</p>
+	
+	<h3>Listar Carros por Acessorio Opcional</h3>
+	<p>/API/carro/acessorio/opcional/{1 ou 0}</p>
+	
+{% endblock %}

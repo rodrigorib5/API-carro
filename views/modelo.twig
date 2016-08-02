@@ -1,0 +1,24 @@
+{% extends "template.twig" %}
+
+{% block conteudo %}
+
+<form method="post" action="{{ path('cadastrarModelo') }}">
+	
+	<table>
+      <tr>
+        <th>Nome Modelo</th>
+        <th>Ano Modelo</th>
+        <th>Nº Aro da Roda</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="nomeModelo" name="nomeModelo"></td>
+        <td><input type="text" id="anoModelo" name="anoModelo"></td>
+        <td><input type="text" id="aroModelo" name="aroModelo"></td>
+      </tr>
+    </table>
+	
+	<input type="submit">
+
+</form>
+
+{% endblock %}

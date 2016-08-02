@@ -1,0 +1,25 @@
+{% extends "template.twig" %}
+
+{% block conteudo %}
+
+<form method="post" action="{{ path('cadastrarAcessorio') }}">
+	
+	<table>
+      <tr>
+        <th>Nome Acessório</th>
+        <th>É opcional?</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="noAcessorio" name="noAcessorio"></td>
+        <td>
+        	SIM<input type="radio" id="isOpcional" name="isOpcional" value="1">
+        	NÃO<input type="radio" id="isOpcional" name="isOpcional" value="0">
+    	</td>
+      </tr>
+    </table>
+	
+	<input type="submit">
+
+</form>
+
+{% endblock %}
