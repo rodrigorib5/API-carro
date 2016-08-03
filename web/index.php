@@ -4,10 +4,8 @@
 require_once __DIR__.'/../vendor/autoload.php';
 require_once 'bootstrap.php';
 
-$app->get('/', function () use ($app) {
-    
+$app->get('/login', function () use ($app) {
     return $app['twig']->render('usage.twig');
-
 });
 
 $app->mount('/admin', include 'admin.php');

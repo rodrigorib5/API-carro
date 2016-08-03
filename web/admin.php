@@ -1,7 +1,5 @@
 <?php
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-
 $admin = $app['controllers_factory'];
 
 $admin->get('/cadastro/modelo', function () use ($app) {

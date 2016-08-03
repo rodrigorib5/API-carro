@@ -6,4 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
+    'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+    'BeforeValidException' => $vendorDir . '/firebase/php-jwt/Firebase/PHP-JWT/Exceptions/BeforeValidException.php',
+    'DivisionByZeroError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
+    'Error' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/Error.php',
+    'ExpiredException' => $vendorDir . '/firebase/php-jwt/Firebase/PHP-JWT/Exceptions/ExpiredException.php',
+    'JWT' => $vendorDir . '/firebase/php-jwt/Firebase/PHP-JWT/Authentication/JWT.php',
+    'ParseError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
+    'SignatureInvalidException' => $vendorDir . '/firebase/php-jwt/Firebase/PHP-JWT/Exceptions/SignatureInvalidException.php',
+    'TypeError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
 );
