@@ -1,0 +1,22 @@
+{% extends "template.twig" %}
+
+{% block conteudo %}
+
+<form method="post" action="{{ path('autenticar') }}">
+	
+	<table>
+      <tr>
+        <th>Usuário</th>
+        <th>senha</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="usuario" name="usuario"></td>
+        <td><input type="text" id="usuario" name="senha"></td>
+      </tr>
+    </table>
+	
+	<input type="submit">
+
+</form>
+
+{% endblock %}

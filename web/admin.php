@@ -18,4 +18,8 @@ $admin->get('/cadastro/montar', function () use ($app) {
     return $app['twig']->render('montar.twig');
 });
 
+$admin->get('/auth', function () use ($app) {
+    return $app['twig']->render('auth.twig');
+});
+
 return $admin;

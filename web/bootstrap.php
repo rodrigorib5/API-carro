@@ -45,7 +45,7 @@ $app['users'] = function () use ($app) {
 
 $app['security.firewalls'] = array(
     'login' => [
-        'pattern' => 'login|register|oauth',
+        'pattern' => 'auth|login|register|oauth',
         'anonymous' => true,
     ],
     'secured' => array(
@@ -68,20 +68,25 @@ $app->register(new Silex\Provider\SecurityServiceProvider());
 $app->register(new Silex\Provider\SecurityJWTServiceProvider());
 
 $app->post('/api/login', function(Request $request) use ($app){
-    $vars = json_decode($request->getContent(), true);
-
+    $usuario = $request->get('usuario');
+    $senha = $request->get('senha');
+    
+       
+    print_r($app['users']);
+    exit();
+        
+    
     try {
-        if (empty($vars['_username']) || empty($vars['_password'])) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $vars['_username']));
+        if (empty($usuario) || empty($senha)) {
+            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $usuario));
         }
-
         /**
          * @var $user User
          */
-        $user = $app['users']->loadUserByUsername($vars['_username']);
-
-        if (! $app['security.encoder.digest']->isPasswordValid($user->getPassword(), $vars['_password'], '')) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $vars['_username']));
+        $user = $app['users']->loadUserByUsername($usuario);
+        
+        if (! $app['security.encoder.digest']->isPasswordValid($user->getPassword(), $senha, '')) {
+            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $usuario));
         } else {
             $response = [
                 'success' => true,
@@ -96,7 +101,7 @@ $app->post('/api/login', function(Request $request) use ($app){
     }
 
     return $app->json($response, ($response['success'] == true ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST));
-});
+})->bind('autenticar');
 
     $app->get('/api/protected_resource', function() use ($app){
         return $app->json(['hello' => 'world']);
